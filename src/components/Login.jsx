@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, reset } from "../features/authslice";
+import { LoginUser, reset, getMe } from "../features/authslice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +13,9 @@ const Login = () => {
   );
 
   useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
+  useEffect(() => {
     if (user || isSuccess) {
       navigate("/dashboard");
     }
@@ -23,7 +26,6 @@ const Login = () => {
     e.preventDefault();
     dispatch(LoginUser({ email, password }));
   };
-  console.log(message);
   return (
     <section className="hero is-fullheight is-fullwidth">
       <div className="hero-body">
