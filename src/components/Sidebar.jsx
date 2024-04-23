@@ -7,7 +7,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-
+  console.log(user);
   const logout = () => {
     dispatch(LogOut());
     dispatch(reset());
@@ -28,7 +28,7 @@ const Sidebar = () => {
           </li>
         </ul>
 
-        {user && user.role === "admin" && (
+        {user && user.role.name !== "Point de vente" && (
           <div>
             <p className="menu-label">Admin</p>
             <ul className="menu-list">

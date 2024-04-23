@@ -3,6 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./components/Login";
 import Affectation from "./pages/Affectation";
 import Recuperation from "./pages/Recuperation";
+import AddAff from "./pages/AddAffe";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/affectation" element={<Affectation />} />
+          <Route path="/affectation/add" element={<AddAff />} />
           <Route path="/recuperation" element={<Recuperation />} />
         </Routes>
       </BrowserRouter>
